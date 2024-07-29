@@ -1,0 +1,9 @@
+[Default Applications]
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
+image/png=nsxiv.desktop
+image/jpg=nsxiv.desktop
+image/jpeg=nsxiv.desktop
+image/webp=nsxiv.desktop
+image/gif=nsxiv.desktop
+image/bmp=nsxiv.desktop
+text/html=firefox.desktop
