@@ -1,43 +1,21 @@
 return {
     "neovim/nvim-lspconfig",
-    dependencies = {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-        "hrsh7th/nvim-cmp",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-path",
-    },
     config = function()
-        local lspconfig = require("lspconfig")
-        require("mason").setup {}
-        require("mason-lspconfig").setup({
-            ensure_installed = {
-                "pyright",
-                "lua_ls",
-                "emmet_ls",
-                "cssls",
-            }
+        vim.api.nvim_create_autocmd("LspAttach", {
+            callback = function(event)
+                local opts = { buffer = event.buf }
+                vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+                vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
+                vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, opts)
+                vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+                vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
+                vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
+                vim.keymap.set("i", "<c-h>", function() vim.lsp.buf.signature_help() end, opts)
+            end
         })
-        lspconfig.pyright.setup {}
-        lspconfig.lua_ls.setup {}
-        lspconfig.emmet_ls.setup {}
-        lspconfig.cssls.setup {}
-        local cmp = require("cmp")
-        cmp.setup {
-            completion = {
-                autocomplete = false,
-                completeopt = "menu,menuone,noinsert",
-            },
-            mapping = cmp.mapping.preset.insert {
-                ["<C-n>"] = cmp.mapping.select_next_item(),
-                ["<C-p>"] = cmp.mapping.select_prev_item(),
-                ["<C-y>"] = cmp.mapping.confirm { select = true },
-                ["<C-Space>"] = cmp.mapping.complete {},
-            },
-            sources = {
-                { name = "nvim_lsp" },
-                { name = "path" },
-            },
-        }
-    end,
+        local lspconfig = require("lspconfig")
+        lspconfig.pyright.setup({})
+        lspconfig.gopls.setup({})
+        lspconfig.clangd.setup({})
+    end
 }
