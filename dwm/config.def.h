@@ -5,12 +5,14 @@ static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Source Code Pro:pixelsize=16" };
-static const char dmenufont[]       = "Source Code Pro:pixelsize=16";
-static const char normfg[]          = "#000000";
-static const char normbg[]          = "#cccccc";
-static const char normborder[]      = "#cccccc";
-static const char selfg[]           = "#000000";
+static const char *fonts[]          = { "Source Code Pro:pixelsize=12" };
+static const char dmenufont[]       = "Source Code Pro:pixelsize=12";
+// static const char *fonts[]          = { "Noto Sans Mono:pixelsize=12" };
+// static const char dmenufont[]       = "Noto Sans Mono:pixelsize=12";
+static const char normfg[]          = "#cccccc";
+static const char normbg[]          = "#222222";
+static const char normborder[]      = "#444444";
+static const char selfg[]           = "#222222";
 static const char selbg[]           = "#cccccc";
 static const char selborder[]       = "#cccccc";
 static const char *colors[][3]      = {
@@ -33,7 +35,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -41,11 +43,11 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	// { "[]=",      tile },    /* first entry is default */
-	{ "[tiling]",      tile },    /* first entry is default */
+	{ "[t]",      tile },    /* first entry is default */
 	// { "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[floating]",      NULL },    /* no layout function means floating behavior */
+	{ "[f]",      NULL },    /* no layout function means floating behavior */
 	// { "[M]",      monocle },
-	{ "[monocle]",      monocle },
+	{ "[m]",      monocle },
 };
 
 /* key definitions */
