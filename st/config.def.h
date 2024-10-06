@@ -5,12 +5,12 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "SourceCode Pro:pixelsize=21";
-// static char *font = "Hack:pixelsize=22";
-// static char *font = "Spline Sans Mono:pixelsize=21";
-// static char *font = "Terminus (TTF):pixelsize=24";
-// static char *font = "Roboto Mono:pixelsize=21";
-static int borderpx = 2;
+// static char *font = "SourceCode Pro:pixelsize=22";
+static char *font = "SourceCode Pro:pixelsize=16";
+// static char *font = "Nimbus Mono PS:pixelsize=16";
+// static char *font = "UbuntuMono Nerd Font:pixelsize=20";
+// static char *font = "Iosevka Fixed SS09:pixelsize=19";
+static int borderpx = 0;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -57,14 +57,16 @@ int allowwindowops = 0;
  * near minlatency, but it waits longer for slow updates to avoid partial draw.
  * low minlatency will tear/flicker more, as it can "detect" idle too early.
  */
-static double minlatency = 2;
-static double maxlatency = 33;
+// static double minlatency = 2;
+// static double maxlatency = 33;
+static double minlatency = 0;
+static double maxlatency = 1;
 
 /*
  * blinking timeout (set to 0 to disable blinking) for the terminal blinking
  * attribute.
  */
-static unsigned int blinktimeout = 800;
+static unsigned int blinktimeout = 0;
 
 /*
  * thickness of underline and bar cursors
@@ -77,7 +79,7 @@ static unsigned int cursorthickness = 2;
  *    Bold affects lines thickness if boxdraw_bold is not 0. Italic is ignored.
  * 0: disable (render all U25XX glyphs normally from the font).
  */
-const int boxdraw = 0;
+const int boxdraw = 1;
 const int boxdraw_bold = 0;
 
 /* braille (U28XX):  1: render as adjacent "pixels",  0: use font */
@@ -87,7 +89,7 @@ const int boxdraw_braille = 0;
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
  * it
  */
-static int bellvolume = 0;
+static int bellvolume = 100;
 
 /* default TERM value */
 char *termname = "st-256color";
@@ -138,6 +140,7 @@ static const char *colorname[] = {
 	"#555555",
 	"gray90", /* default foreground colour */
 	"black", /* default background colour */
+	"#fbfbfb",
 };
 
 
@@ -145,10 +148,10 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 258;
-unsigned int defaultbg = 259;
-unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+unsigned int defaultfg = 260;
+unsigned int defaultbg = 0;
+unsigned int defaultcs = 260;
+static unsigned int defaultrcs = 0;
 
 /*
  * Default shape of cursor
