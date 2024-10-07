@@ -65,9 +65,19 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbg, "-nf", normfg, "-sb", selbg, "-sf", selfg, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *incvolcmd[]  = { "pamixer", "-i5" , NULL };
+static const char *decvolcmd[]  = { "pamixer",  "-d5", NULL };
+static const char *mutevolcmd[]  = { "pamixer",  "-t", NULL };
+static const char *shotcmd[] = { "scrot", "-q100", NULL };
+static const char *selshotcmd[] = { "scrot", "-q100", "--select", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,                       XK_Print,  spawn,          {.v = shotcmd } },
+	{ MODKEY|ShiftMask,             XK_Print,  spawn,          {.v = selshotcmd } },
+	{ MODKEY,                       XK_F2,     spawn,          {.v = decvolcmd } },
+	{ MODKEY,                       XK_F1,     spawn,          {.v = mutevolcmd } },
+	{ MODKEY,                       XK_F3,     spawn,          {.v = incvolcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
