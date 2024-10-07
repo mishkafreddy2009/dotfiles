@@ -1,0 +1,16 @@
+add_newline = false
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$shell\
+$character
+"""
+
+[character]
+format = '\$ '
+
+[directory]
+truncation_length = 10
+truncate_to_repo = false
