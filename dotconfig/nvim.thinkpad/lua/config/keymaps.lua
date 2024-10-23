@@ -1,5 +1,0 @@
-vim.keymap.set("i", "jk", "<esc>")
--- vim.keymap.set("n", "<leader>t", ":sp<cr> :term<cr> :resize 10n<cr> i")
--- vim.keymap.set("t", "<esc>", "<c-\\><c-n>")
--- vim.keymap.set("n", "<leader>pb", ":!black %<cr>")
--- vim.keymap.set("n", "<leader>pf", ":!flake8 %<cr>")

@@ -8,8 +8,8 @@ end)
 vim.cmd.filetype("indent off")
 vim.opt.backspace = { "indent", "eol", "start" }
 vim.opt.expandtab = false
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 8
+vim.opt.shiftwidth = 8
 vim.opt.writebackup = false
 vim.opt.swapfile = false
 vim.opt.history = 2048

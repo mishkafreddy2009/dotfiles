@@ -11,7 +11,7 @@ return {
 		fzf.setup({
 			"fzf-native",
 			winopts = {
-				border = "single",
+				border = "none",
 				preview = {
 					border = "noborder"
 				}
