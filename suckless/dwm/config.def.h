@@ -9,7 +9,6 @@ static const char *fonts[]          = { "Cascadia Mono:pixelsize=14" };
 static const char dmenufont[]       = "Cascadia Mono:pixelsize=14";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#777777";
-static const char col_gray3[]       = "#bbbbbb";
 static const char col_darkred[]      = "#870000";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -56,7 +55,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_darkred, "-sf", col_gray3, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray2, "-sb", col_darkred, "-sf", col_gray2, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
