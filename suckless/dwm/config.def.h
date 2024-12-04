@@ -8,12 +8,14 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Cascadia Mono:pixelsize=14" };
 static const char dmenufont[]       = "Cascadia Mono:pixelsize=14";
 static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#777777";
-static const char col_darkred[]      = "#870000";
+static const char col_gray2[]       = "#888888";
+static const char col_gray3[]       = "#555555";
+static const char col_darkred[]     = "#870000";
+static const char col_black[]       = "#000000";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray2, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray2, col_darkred,  col_darkred  },
+	[SchemeNorm] = { col_gray3, col_black, col_gray3 },
+	[SchemeSel]  = { col_gray2, col_black,  col_gray2  },
 };
 
 /* tagging */
@@ -55,11 +57,17 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray2, "-sb", col_darkred, "-sf", col_gray2, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_gray3, "-sb", col_black, "-sf", col_gray2, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *scrshotselectcmd[]  = { "scrot", "-q100", "--select", NULL };
+static const char *brightnessdown[]  = { "xbacklight", "-inc", "5%", NULL };
+static const char *brightnessup[]  = { "xbacklight", "-dec", "5%", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ 0,                       0x1008ff02,      spawn,          {.v = brightnessdown } },
+	{ 0,                       0x1008ff03,      spawn,          {.v = brightnessup } },
+	{ 0,                       0xff61,      spawn,          {.v = scrshotselectcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
