@@ -7,7 +7,7 @@ return {
 		vim.keymap.set("n", "<leader>fl", fzf.live_grep)
 		vim.keymap.set("n", "<leader>fr", fzf.resume)
 		vim.keymap.set("n", "<leader>fn", function() fzf.files({ cwd="~/.config/nvim" }) end)
-		vim.keymap.set({ "n", "v", "i" }, "<c-x><c-f>", function() fzf.complete_path() end, { silent = true })
+		-- vim.keymap.set({ "n", "v", "i" }, "<c-x><c-f>", function() fzf.complete_path() end, { silent = true })
 		fzf.setup({
 			"fzf-native",
 			winopts = {
