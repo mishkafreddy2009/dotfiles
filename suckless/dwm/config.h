@@ -62,12 +62,16 @@ static const char *sccmd[] = { "scrot", "-q100", "/home/basuev/pics/scs/%Y-%m-%d
 static const char *scselcmd[] = { "scrot", "-q100", "--select", "/home/basuev/pics/scs/%Y-%m-%d-%s.png", NULL };
 static const char *briupcmd[] = { "xbacklight", "-inc", "5%", NULL };
 static const char *bridowncmd[] = { "xbacklight", "-dec", "5%", NULL };
+static const char *volupcmd[] = { "pamixer", "-i5", NULL };
+static const char *voldowncmd[] = { "pamixer", "-d5", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 static const char *remminacmd[] = { "remmina", "-c", "/home/basuev/.local/share/remmina/group_rdp_securige-client_172-24-18-84.remmina", NULL };
 
 static const Key keys[] = {
 	/* modifier                      key         function        argument */
 	{ 0,                            0xffec,     spawn,          {.v = remminacmd } },
+	{ 0,                            0x1008ff13, spawn,          {.v = volupcmd } },
+	{ 0,                            0x1008ff11, spawn,          {.v = voldowncmd } },
 	{ 0,                            0x1008ff02, spawn,          {.v = briupcmd } },
 	{ 0,                            0x1008ff03, spawn,          {.v = bridowncmd } },
 	{ ShiftMask,                    0xff61,     spawn,          {.v = scselcmd } },
